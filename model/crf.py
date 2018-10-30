@@ -261,27 +261,3 @@ class CRF(nn.Module):
             return (forward_score - gold_score)/batch_size
         else:
              return forward_score - gold_score
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
