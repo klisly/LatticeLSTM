@@ -5,7 +5,7 @@
 # @Last Modified time: 2018-05-12 22:09:37
 import sys
 import numpy as np
-from alphabet import Alphabet
+from .alphabet import Alphabet
 NULLKEY = "-null-"
 def normalize_word(word):
     new_word = ""
@@ -79,7 +79,7 @@ def read_seg_instance(input_file, word_alphabet, biword_alphabet, char_alphabet,
     biword_Ids = []
     char_Ids = []
     label_Ids = []
-    for idx in xrange(len(in_lines)):
+    for idx in range(len(in_lines)):
         line = in_lines[idx]
         if len(line) > 2:
             pairs = line.strip().split()
@@ -140,7 +140,7 @@ def read_instance_with_gaz(input_file, gaz, word_alphabet, biword_alphabet, char
     biword_Ids = []
     char_Ids = []
     label_Ids = []
-    for idx in xrange(len(in_lines)):
+    for idx in range(len(in_lines)):
         line = in_lines[idx]
         if len(line) > 2:
             pairs = line.strip().split()
@@ -221,7 +221,7 @@ def read_instance_with_gaz_in_sentence(input_file, gaz, word_alphabet, biword_al
     in_lines = open(input_file,'r').readlines()
     instence_texts = []
     instence_Ids = []
-    for idx in xrange(len(in_lines)):
+    for idx in range(len(in_lines)):
         pair = in_lines[idx].strip().decode('utf-8').split()
         orig_words = list(pair[0])
         
@@ -331,5 +331,5 @@ def load_pretrain_emb(embedding_path):
 
 if __name__ == '__main__':
     a = np.arange(9.0)
-    print a
-    print norm2one(a)
+    print(a)
+    print(norm2one(a))
