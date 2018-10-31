@@ -83,7 +83,7 @@ def read_seg_instance(input_file, word_alphabet, biword_alphabet, char_alphabet,
         line = in_lines[idx]
         if len(line) > 2:
             pairs = line.strip().split()
-            word = pairs[0].decode('utf-8')
+            word = pairs[0]
             if number_normalized:
                 word = normalize_word(word)
             label = pairs[-1]
@@ -149,7 +149,7 @@ def read_instance_with_gaz(input_file, gaz, word_alphabet, biword_alphabet, char
                 word = normalize_word(word)
             label = pairs[-1]
             if idx < len(in_lines) -1 and len(in_lines[idx+1]) > 2:
-                biword = word + in_lines[idx+1].strip().split()[0].decode('utf-8')
+                biword = word + in_lines[idx+1].strip().split()[0]
             else:
                 biword = word + NULLKEY
             biwords.append(biword)
@@ -326,7 +326,7 @@ def load_pretrain_emb(embedding_path):
                 assert (embedd_dim + 1 == len(tokens))
             embedd = np.empty([1, embedd_dim])
             embedd[:] = tokens[1:]
-            embedd_dict[tokens[0].decode('utf-8')] = embedd
+            embedd_dict[tokens[0]] = embedd
     return embedd_dict, embedd_dim
 
 if __name__ == '__main__':
