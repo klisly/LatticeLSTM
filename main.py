@@ -184,7 +184,7 @@ def batchify_with_label(input_batch_list, gpu, volatile_flag=False):
     chars = [sent[2] for sent in input_batch_list]
     gazs = [sent[3] for sent in input_batch_list]
     labels = [sent[4] for sent in input_batch_list]
-    word_seq_lengths = torch.LongTensor(map(len, words))
+    word_seq_lengths = torch.LongTensor(list(map(len, words)))
     max_seq_len = word_seq_lengths.max()
     word_seq_tensor = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).long()
     biword_seq_tensor = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).long()
