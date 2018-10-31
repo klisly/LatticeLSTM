@@ -189,7 +189,7 @@ class Data:
         if gaz_file:
             fins = open(gaz_file, 'r', encoding='utf-8').readlines()
             for fin in fins:
-                fin = fin.strip().split()[0].decode('utf-8')
+                fin = fin.strip().split()[0]
                 if fin:
                     self.gaz.insert(fin, "one_source")
             print("Load gaz file: ", gaz_file, " total size:", self.gaz.size())
