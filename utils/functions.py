@@ -30,7 +30,7 @@ def read_instance(input_file, word_alphabet, char_alphabet, label_alphabet, numb
     for line in in_lines:
         if len(line) > 2:
             pairs = line.strip().split()
-            word = pairs[0].decode('utf-8')
+            word = pairs[0]
             if number_normalized:
                 word = normalize_word(word)
             label = pairs[-1]
@@ -89,7 +89,7 @@ def read_seg_instance(input_file, word_alphabet, biword_alphabet, char_alphabet,
             label = pairs[-1]
             words.append(word)
             if idx < len(in_lines) -1 and len(in_lines[idx+1]) > 2:
-                biword = word + in_lines[idx+1].strip().split()[0].decode('utf-8')
+                biword = word + in_lines[idx+1].strip().split()[0]
             else:
                 biword = word + NULLKEY
             biwords.append(biword)
@@ -144,7 +144,7 @@ def read_instance_with_gaz(input_file, gaz, word_alphabet, biword_alphabet, char
         line = in_lines[idx]
         if len(line) > 2:
             pairs = line.strip().split()
-            word = pairs[0].decode('utf-8')
+            word = pairs[0]
             if number_normalized:
                 word = normalize_word(word)
             label = pairs[-1]
@@ -222,7 +222,7 @@ def read_instance_with_gaz_in_sentence(input_file, gaz, word_alphabet, biword_al
     instence_texts = []
     instence_Ids = []
     for idx in range(len(in_lines)):
-        pair = in_lines[idx].strip().decode('utf-8').split()
+        pair = in_lines[idx].strip().split()
         orig_words = list(pair[0])
         
         if (max_sent_length > 0) and (len(orig_words) > max_sent_length):

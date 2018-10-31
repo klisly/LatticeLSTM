@@ -154,14 +154,14 @@ class Data:
             line = in_lines[idx]
             if len(line) > 2:
                 pairs = line.strip().split()
-                word = pairs[0].decode('utf-8')
+                word = pairs[0]
                 if self.number_normalized:
                     word = normalize_word(word)
                 label = pairs[-1]
                 self.label_alphabet.add(label)
                 self.word_alphabet.add(word)
                 if idx < len(in_lines) - 1 and len(in_lines[idx + 1]) > 2:
-                    biword = word + in_lines[idx + 1].strip().split()[0].decode('utf-8')
+                    biword = word + in_lines[idx + 1].strip().split()[0]
                 else:
                     biword = word + NULLKEY
                 self.biword_alphabet.add(biword)
@@ -201,7 +201,7 @@ class Data:
         word_list = []
         for line in in_lines:
             if len(line) > 3:
-                word = line.split()[0].decode('utf-8')
+                word = line.split()[0]
                 if self.number_normalized:
                     word = normalize_word(word)
                 word_list.append(word)
