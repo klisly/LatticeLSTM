@@ -18,7 +18,7 @@ def normalize_word(word):
 
 
 def read_instance(input_file, word_alphabet, char_alphabet, label_alphabet, number_normalized,max_sent_length, char_padding_size=-1, char_padding_symbol = '</pad>'):
-    in_lines = open(input_file,'r').readlines()
+    in_lines = open(input_file,'r', encoding='utf-8').readlines()
     instence_texts = []
     instence_Ids = []
     words = []
@@ -68,7 +68,7 @@ def read_instance(input_file, word_alphabet, char_alphabet, label_alphabet, numb
 
 
 def read_seg_instance(input_file, word_alphabet, biword_alphabet, char_alphabet, label_alphabet, number_normalized, max_sent_length, char_padding_size=-1, char_padding_symbol = '</pad>'):
-    in_lines = open(input_file,'r').readlines()
+    in_lines = open(input_file,'r', encoding='utf-8').readlines()
     instence_texts = []
     instence_Ids = []
     words = []
@@ -129,7 +129,7 @@ def read_seg_instance(input_file, word_alphabet, biword_alphabet, char_alphabet,
 
 
 def read_instance_with_gaz(input_file, gaz, word_alphabet, biword_alphabet, char_alphabet, gaz_alphabet, label_alphabet, number_normalized, max_sent_length, char_padding_size=-1, char_padding_symbol = '</pad>'):
-    in_lines = open(input_file,'r').readlines()
+    in_lines = open(input_file,'r', encoding='utf-8').readlines()
     instence_texts = []
     instence_Ids = []
     words = []
@@ -218,7 +218,7 @@ def read_instance_with_gaz(input_file, gaz, word_alphabet, biword_alphabet, char
 
 
 def read_instance_with_gaz_in_sentence(input_file, gaz, word_alphabet, biword_alphabet, char_alphabet, gaz_alphabet, label_alphabet, number_normalized, max_sent_length, char_padding_size=-1, char_padding_symbol = '</pad>'):
-    in_lines = open(input_file,'r').readlines()
+    in_lines = open(input_file,'r', encoding='utf-8').readlines()
     instence_texts = []
     instence_Ids = []
     for idx in range(len(in_lines)):
@@ -314,7 +314,7 @@ def norm2one(vec):
 def load_pretrain_emb(embedding_path):
     embedd_dim = -1
     embedd_dict = dict()
-    with open(embedding_path, 'r') as file:
+    with open(embedding_path, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
             if len(line) == 0:

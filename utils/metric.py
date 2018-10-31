@@ -165,7 +165,7 @@ def get_ner_BIO(label_list):
 
 
 def readSentence(input_file):
-    in_lines = open(input_file, 'r').readlines()
+    in_lines = open(input_file, 'r', encoding='utf-8').readlines()
     sentences = []
     labels = []
     sentence = []
@@ -184,7 +184,7 @@ def readSentence(input_file):
 
 
 def readTwoLabelSentence(input_file, pred_col=-1):
-    in_lines = open(input_file, 'r').readlines()
+    in_lines = open(input_file, 'r', encoding='utf-8').readlines()
     sentences = []
     predict_labels = []
     golden_labels = []
