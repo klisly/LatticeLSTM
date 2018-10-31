@@ -99,7 +99,7 @@ def save_data_setting(data, save_file):
     new_data.test_Ids = []
     new_data.raw_Ids = []
     ## save data settings
-    with open(save_file, 'w', encoding='utf-8') as fp:
+    with open(save_file, 'wb', encoding='utf-8') as fp:
         pickle.dump(new_data, fp)
     print("Data setting saved to file: ", save_file)
 
