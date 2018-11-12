@@ -191,6 +191,11 @@ def batchify_with_label(input_batch_list, gpu, volatile_flag=False):
     label_seq_tensor = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).long()
     mask = autograd.Variable(torch.zeros((batch_size, max_seq_len)), volatile=volatile_flag).byte()
     for idx, (seq, biseq, label, seqlen) in enumerate(zip(words, biwords, labels, word_seq_lengths)):
+        print("idx:",idx)
+        print("sqe:",seq)
+        print("biseq:", biseq)
+        print("label:", label)
+        print("seqlen:", seqlen)
         word_seq_tensor[idx, :seqlen] = torch.LongTensor(seq)
         biword_seq_tensor[idx, :seqlen] = torch.LongTensor(biseq)
         label_seq_tensor[idx, :seqlen] = torch.LongTensor(label)
